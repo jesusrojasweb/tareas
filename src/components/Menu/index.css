@@ -17,7 +17,7 @@
 
 .Menu{
     background: var(--colorPrincipal);
-    max-height: 100vh;
+    min-height: 100vh;
     padding: 2em;
     text-align: center;
     & .nombre{

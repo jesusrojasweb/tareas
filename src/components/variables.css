@@ -1,0 +1,28 @@
+:root{
+    --colorPrincipal: #290062;
+    --colorSecundario: #301d6e;
+    --colorDash: #3b2883;
+    --colorTareas: #ff5f89;
+    --colorProceso: #ffde8e;
+    --colorRetraso: #1a834a;
+    --colorListo: #7fedf1;
+    --colorBoton: #515eff;
+    --colorCancelar: #ff5f89;
+    --colorText: #210d3b;
+    --colorHora: #8168a2;
+    --colorSearh: color(var(--colorPrincipal) a(50%));
+    --colorInput: #9087c0;
+
+    --fuente: 'Montserrat', system-ui;
+
+    --btn: {
+        background: var(--colorBoton);
+        border: none;
+        border-radius: 5px;
+        color: white;
+        padding: 1em 2em;
+        font-weight: 600;
+        font-family: var(--fuente);
+        cursor: pointer;
+    }
+}

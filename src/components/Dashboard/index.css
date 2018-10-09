@@ -1,19 +1,21 @@
-:root{
-    --colorPrincipal: #290062;
-    --colorSecundario: #301d6e;
-    --colorDash: #3b2883;
-    --colorTareas: #ff5f89;
-    --colorProceso: #ffde8e;
-    --colorRetraso: #1a834a;
-    --colorListo: #7fedf1;
-    --colorBoton: #515eff;
-    --colorText: #210d3b;
-    --colorHora: #8168a2;
-
-    --fuente: 'Montserrat', system-ui;
-
-}
+@import '../variables.css';
 
 .Dashboard{
     padding: 2em 4em;
+    position: relative;
+    & > .header{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    & .agregar{
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 2em;
+        & .add{
+            @apply --btn;
+        }
+    }
 }
