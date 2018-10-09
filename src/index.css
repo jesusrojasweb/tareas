@@ -1,0 +1,132 @@
+:root{
+	--fuenteP: 'M PLUS Rounded 1c', system-ui;
+	--fuenteS: 'Montserrat', system-ui;
+
+	--colorTexto: #105398;
+	--colorRojoFondo: #e58097;
+	--colorAzulFondo: #156fcb;
+	--colorAmarillo: #fef467;
+	--colorRojo: #f72139;
+
+	--title: {
+		color: white;
+		font-family: var(--fuenteP);
+		text-transform: uppercase;
+	};
+	--btn: {
+		text-decoration: none;
+		text-transform: uppercase;
+		color: white;
+		background: var(--colorRojo);
+		border-radius: 5px;
+		padding: 1em;
+		font-weight: bold;
+	};
+};
+@custom-media --animacion (width > 500px);
+@custom-media --tablet (width < 800px);
+@custom-media --mobile (width < 500px);
+@custom-media --min (width <= 360px);
+*{
+	transition: .3s;
+}
+body{
+	font-family: var(--fuenteP);
+	font-family: var(--fuenteS);
+	margin: 0;
+	padding: 0;
+	overflow-x: hidden;
+
+}
+h1,h2,h3,h4,h5,figure,ul{
+	margin: 0;
+	padding: 0;
+}
+p{
+	line-height: 1.5em;
+}
+img{
+	width: 100%;
+	vertical-align: top;
+}
+.margen{
+	margin: 0 5em;
+	@media (--mobile) {
+		margin: 0 2em;
+	}
+}
+.load{
+	width: 100%;
+	min-height: 250px;
+	background: color(var(--colorTexto) a(50%));
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	box-sizing: border-box;
+	@media(--tablet){
+		height: 200px;
+	}
+	@media(--mobile){
+		height: 180px !important;
+	}
+
+	& .loader{
+		width: 80px;
+		height: 80px;
+		border-radius: 50%;
+		overflow: hidden;
+		position: absolute;
+		z-index: 1;
+		& .circulo{
+			width: 100%;
+			height: 100%;
+			border: 8px solid color(var(--azul) a(80%));
+			border-radius: 50%;
+			position: absolute;
+			box-sizing: border-box;
+		}
+		& .movimiento{
+			clip: rect(0px, 80px, 40px, 40px);
+			width: 100%;
+			height: 100%;
+			border: 8px solid white;
+			border-radius: 50%;
+			position: absolute;
+			box-sizing: border-box;
+			transform: rotate(-45deg);
+			animation: rotar 1s ease-in-out infinite;
+		}
+	}
+}
+.b-lazy{
+	opacity: 0;
+}
+.b-loaded{
+	opacity: 1;
+	z-index: 10;
+	transition: .3s;
+}
+@keyframes rotar{
+	0%{
+		transform: rotate(-45deg);
+	}
+	100%{
+		transform: rotate(315deg);
+	}
+}
+/* -------- scroll --------------*/
+.container{
+	@media (--animacion) {
+		
+	    scroll-snap-type: y mandatory;
+	    max-height: 100vh;
+	    overflow-y: scroll;
+	    & .animacion{
+	    	height: 100vh;
+	    	scroll-snap-align: start;
+	    	box-sizing: border-box;
+	    	display: flex;
+	    	align-items: center;
+	    }
+	}
+}
