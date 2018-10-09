@@ -1,9 +1,18 @@
-import React, {Components} from 'react'
+import React, {Component} from 'react'
+import Menu from './Menu';
+import Dashboard from './Dashboard';
 
-class Tareas extends Components{
+//estilos
+import './index.css'
+import './fontawesome-all.min.css'
+
+class Tareas extends Component{
     render(){
         return(
-            <h1>Esta son las tareas</h1>
+            <div className="Tareas">
+                <Menu/>
+                <Dashboard/>
+            </div>
         )
     }
 }

@@ -1,0 +1,25 @@
+:root{
+    --colorPrincipal: #290062;
+    --colorSecundario: #301d6e;
+    --colorDash: #3b2883;
+    --colorTareas: #ff5f89;
+    --colorProceso: #ffde8e;
+    --colorRetraso: #1a834a;
+    --colorListo: #7fedf1;
+    --colorBoton: #515eff;
+    --colorText: #210d3b;
+    --colorHora: #8168a2;
+
+    --fuente: 'Montserrat', system-ui;
+
+}
+
+.Tareas{
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    color: white;
+    & .Dashboard{
+        background: var(--colorSecundario);
+        height: 100vh;
+    }
+}

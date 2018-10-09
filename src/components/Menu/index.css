@@ -1,0 +1,56 @@
+:root{
+    --colorPrincipal: #290062;
+    --colorSecundario: #301d6e;
+    --colorDash: #3b2883;
+    --colorTareas: #ff5f89;
+    --colorProceso: #ffde8e;
+    --colorRetraso: #1a834a;
+    --colorListo: #7fedf1;
+    --colorBoton: #515eff;
+    --colorText: #210d3b;
+    --colorHora: #8168a2;
+
+    --fuente: 'Montserrat', system-ui;
+
+}
+
+
+.Menu{
+    background: var(--colorPrincipal);
+    max-height: 100vh;
+    padding: 2em;
+    text-align: center;
+    & .nombre{
+        border-bottom: 1px solid white;
+        padding-bottom: 1em;
+    }
+    & .menu{
+        padding: 0;
+        margin: 0;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        & .item{
+            list-style: none;
+            & a{
+                display: flex;
+                flex-direction: column;
+                color: white;
+                text-decoration: none;
+                padding: 1em;
+                & .icono{
+                    font-size: 3rem;
+                    color: var(--colorHora);
+                    margin-bottom: .2em;
+                    transition: .3s;
+                }
+                &:hover{
+                    & .icono{
+                        color: white;
+                    }
+                }
+            }
+        }
+    }
+}
