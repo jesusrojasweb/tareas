@@ -1,0 +1,60 @@
+:root{
+    --colorPrincipal: #290062;
+    --colorSecundario: #301d6e;
+    --colorDash: #3b2883;
+    --colorTareas: #ff5f89;
+    --colorProceso: #ffde8e;
+    --colorRetraso: #1a834a;
+    --colorListo: #7fedf1;
+    --colorBoton: #515eff;
+    --colorText: #210d3b;
+    --colorHora: #8168a2;
+
+    --fuente: 'Montserrat', system-ui;
+
+}
+
+.Dash{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2em;
+    & .pin{
+        background: var(--colorDash);
+        border-radius: 0 0 5px 5px;
+        &:nth-of-type(2){
+            & .header{
+                border-top-color: var(--colorProceso);
+            }
+        }
+        &:nth-of-type(3){
+            & .header{
+                border-top-color: var(--colorRetraso);
+            }
+        }
+        &:nth-of-type(4){
+            & .header{
+                border-top-color: var(--colorListo);
+            }
+        }
+        & .header{
+            background: var(--colorPrincipal);
+            padding: 1em 2em;
+            border-top: 4px solid var(--colorTareas);
+        }
+        & .body{
+            padding: 1em;
+            & .task{
+                background: white;
+                border-radius: 5px;
+                color: var(--colorPrincipal);
+                margin-bottom: 1em;
+                padding: 1em 2em;
+                display: flex;
+                flex-direction: column;
+                & .hora{
+                    color: var(--colorHora);
+                }
+            }
+        }
+    }
+}

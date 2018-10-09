@@ -1,10 +1,14 @@
 import React, { Component } from "react";
+import Dash from "./Dash";
+
+//estilos
+import './index.css'
 
 class Dashboard extends Component{
     render(){
         return(
             <section className="Dashboard">
-                <h1>Este es el dashboard</h1>
+                <Dash/>
             </section>
         )
     }
