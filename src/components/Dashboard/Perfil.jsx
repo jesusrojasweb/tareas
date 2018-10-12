@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import './Perfil.css'
 
 //assets
-import perfil from '../media/perfil-01.jpg'
+import perfil from '../media/perfil.png'
 
 //components
 import {logout} from '../helpers/Auth'
@@ -21,7 +21,7 @@ class Perfil extends Component{
                     </figure>
                 </div>
                 <div className="dropwdown-content">
-                    <a href="#">Perfil</a>
+                    {/* <a href="#">Perfil</a> */}
                     <a href="#" 
                         onClick={()=>{
                             logout()

@@ -3,6 +3,7 @@
 .MenuLanding{
     display: flex;
     justify-content: flex-end;
+    margin-bottom: 2em;
     & .menu{
         list-style: none;
         display: flex;

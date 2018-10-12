@@ -4,8 +4,12 @@
 	display: block;
 	opacity: 0;
     visibility: hidden;
-    position: absolute;
+    position: fixed;
     top: 15%;
+    right: calc(100% - 60%);
+    @media(--tablet){
+        right: calc(100% - 85%);
+    }
     & .Modal-dialog{
         overflow: hidden;
         border-radius: 5px;
@@ -31,6 +35,9 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr;
                 grid-gap: 2em;
+                @media(--mobile){
+                    grid-template-columns: 1fr;
+                }
                 & .grupo{
                     display: flex;
                     flex-direction: column;

@@ -4,6 +4,9 @@
     display: grid;
     grid-template-columns: 1fr 7fr;
     color: white;
+    @media(--tablet){
+        grid-template-columns: 1fr;
+    }
     & .Dashboard{
         background: var(--colorSecundario);
         min-height: 100vh;

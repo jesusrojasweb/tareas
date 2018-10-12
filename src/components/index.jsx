@@ -16,6 +16,7 @@ import './fontawesome-all.min.css'
 import Menu from './Menu';
 import Dashboard from './Dashboard';
 import Landing from './Landing/'
+import Calendario from './Calendario/'
 
 const PrivateRoute = ({component: Component, authed, rest}) => ( //Ruta al estar autenticado
   <Route 
@@ -23,7 +24,7 @@ const PrivateRoute = ({component: Component, authed, rest}) => ( //Ruta al estar
     render={
       props => authed === true
       ? <Component {...props} />
-      : <Redirect to={{pathname: '/login', state: {from: props.location}}} />
+      : <Redirect to='/' />
     }
   />
 )
@@ -34,7 +35,7 @@ const PublicRoute = ({component: Component, authed, rest}) => ( //Ruta al no est
     render={
       props => authed === false
       ? <Component {...props}/>
-      : <Dashboard {...props} />
+      : <Dashboard />
     }
   />
 )
@@ -71,14 +72,14 @@ class Tareas extends Component{
     }
     render(){
         return(
-            <div className="Tareas">
-                <Menu/>
-                <Router>
-                    <Switch>
-                        <PublicRoute authed={this.state.authed} path='/' component={Landing} />
-                    </Switch>
-                </Router>
-            </div>
+            <Router>
+                <div className="Tareas">
+                    <Menu/>
+                        <Switch>
+                            <PublicRoute authed={this.state.authed} path='/' component={Landing} />
+                        </Switch>
+                </div>
+            </Router>
         )
     }
 }

@@ -5,6 +5,9 @@
     overflow: hidden;
     border-radius: 5px;
     width: 40%;
+    @media(--mobile){
+        display: none;
+    }
     & .icono{
         background: var(--colorSearh);
         padding: 1em 2em;

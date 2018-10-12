@@ -5,6 +5,12 @@
     grid-template-columns: repeat(4, 1fr);
     grid-gap: 2em;
     margin-top: 3em;
+    @media(--tablet){
+        grid-template-columns: repeat(2,1fr);
+    }
+    @media(--mobile){
+        grid-template-columns: 1fr !important;
+    }
     & .pin{
         background: var(--colorDash);
         border-radius: 0 0 5px 5px;
@@ -30,6 +36,7 @@
         }
         & .body{
             padding: 1em;
+            min-height: 150px;
             & .task{
                 background: white;
                 border-radius: 5px;
@@ -38,6 +45,7 @@
                 padding: 1em 2em;
                 display: flex;
                 flex-direction: column;
+                cursor: pointer;
                 & .hora{
                     color: var(--colorHora);
                 }

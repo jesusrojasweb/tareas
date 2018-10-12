@@ -26,3 +26,7 @@
         cursor: pointer;
     }
 }
+@custom-media --animacion (width > 500px);
+@custom-media --tablet (width < 800px);
+@custom-media --mobile (width < 500px);
+@custom-media --min (width <= 360px);
