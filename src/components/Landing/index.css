@@ -1,0 +1,10 @@
+@import '../variables.css';
+.Modal{
+    left: inherit;
+    right: calc(100% - 60%);
+    width: inherit;
+}
+.Landing{
+    background: var(--colorSecundario);
+    padding: 2em 4em;
+}

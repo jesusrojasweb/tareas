@@ -16,15 +16,16 @@ class Dash extends Component{
             retraso: [],
             listo: [],
             date: new Date,
+            dia: null,
             hora: null,
             minutos: null,
             segundos: null,
             tiempo: null
         }
-        this.dbTask = firebase.database().ref('tasks')
-        this.dbProceso = firebase.database().ref('proceso')
-        this.dbRetraso = firebase.database().ref('retraso')
-        this.dbListo = firebase.database().ref('listo')
+        this.dbTask = firebase.database().ref(`users/${this.props.userId}/tasks`)
+        this.dbProceso = firebase.database().ref(`users/${this.props.userId}/proceso`)
+        this.dbRetraso = firebase.database().ref(`users/${this.props.userId}/retraso`)
+        this.dbListo = firebase.database().ref(`users/${this.props.userId}/listo`)
         this.reloj = this.reloj.bind(this)
         this.removeTask = this.removeTask.bind(this)
         this.removeProceso = this.removeProceso.bind(this)
@@ -39,7 +40,8 @@ class Dash extends Component{
         this.dbProceso.push().set({
             tarea: proceso.taskContent,
             inicio: proceso.inicio,
-            final: proceso.final
+            final: proceso.final,
+            dia: proceso.dia
         })
         alert('Tienes una tarea en proceso')
     }
@@ -47,7 +49,8 @@ class Dash extends Component{
         this.dbListo.push().set({
             tarea: listo.taskContent,
             inicio: listo.inicio,
-            final: listo.final
+            final: listo.final,
+            dia: listo.dia
         })
         alert('Tienes una tarea terminada')
     }
@@ -60,6 +63,7 @@ class Dash extends Component{
             }
             this.setState({
                 date,
+                dia: this.state.date.getUTCDate(),
                 hora: this.state.date.getHours(),
                 minutos: minutos,
                 segundos: this.state.date.getSeconds(),
@@ -75,6 +79,12 @@ class Dash extends Component{
                 if(this.state.proceso[i].final <= this.state.tiempo){
                     this.handleListo(this.state.proceso[i])
                     this.removeProceso(this.state.proceso[i].taskId)
+                }
+            }
+            for(let i = 0; i < this.state.listo.length; i++){
+                console.log(this.state.listo[i].dia)
+                if(this.state.listo[i].dia < this.state.dia){
+                    this.removeListo(this.state.listo[i].taskId)
                 }
             }
         }, 1000)

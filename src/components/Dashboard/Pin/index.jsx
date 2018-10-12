@@ -17,6 +17,7 @@ class Pin extends Component{
                 taskContent: snap.val().tarea,
                 inicio: snap.val().inicio,
                 final: snap.val().final,
+                dia: snap.val().dia
             })
             tasks.sort((a,b)=> a.inicio > b.inicio)
             this.setState({tasks})

@@ -1,0 +1,23 @@
+@import '../variables.css';
+
+.MenuLanding{
+    display: flex;
+    justify-content: flex-end;
+    & .menu{
+        list-style: none;
+        display: flex;
+        & .item{
+            margin-right: 1em;
+            & a{
+                color: white;
+                text-decoration: none;
+            }
+            & .btn{
+                @apply --btn;
+                font-weight: 400;
+                margin: 0;
+                padding: .5em 1em;
+            }
+        }
+    }
+}

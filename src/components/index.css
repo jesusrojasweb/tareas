@@ -2,7 +2,7 @@
 
 .Tareas{
     display: grid;
-    grid-template-columns: 1fr 5fr;
+    grid-template-columns: 1fr 7fr;
     color: white;
     & .Dashboard{
         background: var(--colorSecundario);

@@ -5,13 +5,16 @@ import firebase from 'firebase'
 //estilos
 import './index.css'
 
+//components
+// import Componente from this.props.content
+
 class Modal extends Component{
     constructor(props){
         super(props);
 
         this.modalWrap = null;
         this.modalDialog = null;
-        this.db = firebase.database().ref('tasks');
+        this.db = firebase.database().ref(`users/${this.props.userId}/tasks`);
         this.modalTween = new TimelineLite({paused: true});
         this.handleOnSubmit = this.handleOnSubmit.bind(this)       
     }
@@ -22,10 +25,13 @@ class Modal extends Component{
     handleOnSubmit(e){
         e.preventDefault()
         let form = e.target
+        let date = new Date
+        let dia = date.getUTCDate()
         this.db.push().set({
             tarea: form.nombre.value,
             inicio: `${form.horaInicio.value}:0`,
-            final: `${form.horaFinal.value}:0`
+            final: `${form.horaFinal.value}:0`,
+            dia: dia
         })
         this.props.close()
         form.reset()
@@ -63,25 +69,9 @@ class Modal extends Component{
                             onClick={this.props.close}
                         ><span className="fas fa-times close"></span></button>
                     </div>
-                    <div className="Modal-content">
-                        <form className="form" onSubmit={this.handleOnSubmit}>
-                            <div className="grupo">
-                                <label htmlFor="nombre" className="label">Nombre</label>
-                                <input type="text" name="nombre" id="nombre" placeholder="Tarea" className="input"/>
-                            </div>
-                            <div className="grupo">
-                                <label htmlFor="horaInicio" className="label">Hora Inicio</label>
-                                <input type="time" name="horaInicio" id="horaInicio" className="input"/>
-                            </div>
-                            <div className="grupo">
-                                <label htmlFor="horaFinal" className="label">Hora Final</label>
-                                <input type="time" name="horaFinal" id="horaFinal" className="input"/>
-                            </div>
-                            <div className="boton">
-                                <input type="submit" value="Añadir a las tareas" className="btn" />
-                            </div>
-                        </form>
-                    </div>
+                    <this.props.content
+                        submit={this.handleOnSubmit}
+                    />
                 </div>
                 
             </div>

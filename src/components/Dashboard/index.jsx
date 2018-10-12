@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import firebase from 'firebase'
 
 //estilos
 import './index.css'
@@ -8,6 +9,7 @@ import Dash from "./Dash";
 import Search from './Search'
 import Perfil from './Perfil'
 import Modal from './Modal/'
+import AddTareas from './AddTareas'
 
 class Dashboard extends Component{
 
@@ -15,8 +17,23 @@ class Dashboard extends Component{
         super(props);
 
         this.state = {
-            modalVisible: false
+            modalVisible: false,
+            nombre: null,
+            apellido: null,
+            userId: firebase.auth().currentUser.email.split('.').join('')
         }
+    }
+    componentDidMount(){
+        const userEmail = firebase.auth().currentUser.email
+        const userId = userEmail.split('.').join('')
+        this.userRef = firebase.database().ref(`users/${userId}`)
+        this.userCallback = this.userRef.on('value', (snap)=>{
+            this.setState({
+                nombre: snap.val().info.nombre,
+                apellido: snap.val().info.apellido,
+                userId: userId
+            })
+        })
     }
 
     handleModal = v => {
@@ -29,17 +46,24 @@ class Dashboard extends Component{
             <section className="Dashboard">
                 <section className="header">
                     <Search />
-                    <Perfil />
+                    <Perfil
+                        nombre={this.state.nombre}
+                        apellido={this.state.apellido}
+                    />
                 </section>
                 <section className="agregar">
                     <button className="btn add"
                         onClick={this.handleModal.bind(null,true)}
                     >Agregar Tarea</button>
                 </section>
-                <Dash/>
+                <Dash
+                    userId={this.state.userId}
+                />
                 <Modal 
                     visible={this.state.modalVisible}
                     close={this.handleModal.bind(null, false)}
+                    content={AddTareas}
+                    userId={this.state.userId}
                 />
             </section>
         )

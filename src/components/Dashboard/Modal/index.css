@@ -6,7 +6,6 @@
     visibility: hidden;
     position: absolute;
     top: 15%;
-    width: 90%;
     & .Modal-dialog{
         overflow: hidden;
         border-radius: 5px;
