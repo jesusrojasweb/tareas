@@ -1,0 +1,55 @@
+@import '../variables';
+
+.Dash{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 2em;
+    margin-top: 3em;
+    @media(--tablet){
+        grid-template-columns: repeat(2,1fr);
+    }
+    @media(--mobile){
+        grid-template-columns: 1fr !important;
+    }
+    & .pin{
+        background: var(--colorDash);
+        border-radius: 0 0 5px 5px;
+        &:nth-of-type(2){
+            & .header{
+                border-top-color: var(--colorProceso);
+            }
+        }
+        &:nth-of-type(3){
+            & .header{
+                border-top-color: var(--colorRetraso);
+            }
+        }
+        &:nth-of-type(4){
+            & .header{
+                border-top-color: var(--colorListo);
+            }
+        }
+        & .header{
+            background: var(--colorPrincipal);
+            padding: 1em 2em;
+            border-top: 4px solid var(--colorTareas);
+        }
+        & .body{
+            padding: 1em;
+            min-height: 150px;
+            & .task{
+                background: white;
+                border-radius: 5px;
+                color: var(--colorPrincipal);
+                margin-bottom: 1em;
+                padding: 1em 2em;
+                display: flex;
+                flex-direction: column;
+                cursor: pointer;
+                & .hora{
+                    color: var(--colorHora);
+                }
+            }
+        }
+    }
+}

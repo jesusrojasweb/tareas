@@ -1,0 +1,48 @@
+@import '../variables.css';
+
+.Perfil{
+    position: relative;
+    & .boton{
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        & span{
+            margin-right: .5em;
+        }
+        & .foto{
+            width: 70px;
+            border-radius: 5px;
+            overflow: hidden;
+            & img{
+                width: 100%;
+            }
+        }
+    }
+    & .dropwdown-content{
+        display: none;
+        position: absolute;
+        background: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        border-radius: 0 0 5px 5px;
+        z-index: 1;
+        top: 100%;
+        right: 0;
+        overflow: hidden;
+        & a{
+            color: var(--colorPrincipal);
+            padding: 1em 2em;
+            text-decoration: none;
+            display: block;
+            &:hover{
+                background: var(--colorDash);
+                color: white;
+            }
+        }
+    }
+    &:hover{
+        & .dropwdown-content{
+            display: block;
+        }
+    }
+}

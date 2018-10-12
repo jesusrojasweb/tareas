@@ -1,0 +1,21 @@
+@import '../variables.css';
+
+.Dashboard{
+    padding: 2em 4em;
+    position: relative;
+    & > .header{
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
+    & .agregar{
+        display: block;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 2em;
+        & .add{
+            @apply --btn;
+        }
+    }
+}

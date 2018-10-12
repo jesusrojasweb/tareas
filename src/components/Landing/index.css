@@ -1,0 +1,12 @@
+@import '../variables.css';
+.Modal{
+    left: inherit;
+    width: inherit;
+}
+.Landing{
+    background: var(--colorSecundario);
+    padding: 2em 4em;
+    & .btn{
+        @apply --btn;
+    }
+}

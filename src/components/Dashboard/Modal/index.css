@@ -1,0 +1,84 @@
+@import '../../variables.css';
+
+.Modal {
+	display: block;
+	opacity: 0;
+    visibility: hidden;
+    position: fixed;
+    top: 15%;
+    right: calc(100% - 60%);
+    @media(--tablet){
+        right: calc(100% - 85%);
+    }
+    & .Modal-dialog{
+        overflow: hidden;
+        border-radius: 5px;
+        padding: 2em 4em 4em;
+        box-shadow: 1px 2px 3px var(--colorPrincipal);
+        & .cerrar{
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            & button{
+                background: none;
+                color: var(--colorHora);
+                border: none;
+                font-size: 1.5rem;
+                cursor: pointer;
+                &:focus{
+                    outline: none;
+                }
+            }
+        }
+        & .Modal-content{
+            & .form{
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                grid-gap: 2em;
+                @media(--mobile){
+                    grid-template-columns: 1fr;
+                }
+                & .grupo{
+                    display: flex;
+                    flex-direction: column;
+                    & .label{
+                        margin-bottom: 1em;
+                        color: var(--colorPrincipal);
+                    }
+                    & .input{
+                        background: var(--colorInput);
+                        border: none;
+                        padding: 1em 2em;
+                        color: white;
+                        border-radius: 5px;
+                        font-family: var(--fuente);
+                        &::placeholder{
+                            color: color(white a(80%));
+                        }
+                        &:focus{
+                            outline: none;
+                        }
+                    }
+                }
+                & .boton{
+                    align-self: end;
+                    & .btn{
+                        @apply --btn;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.Modal .Modal-dialog {
+    opacity: 0;
+    visibility: hidden;
+    width: 80%;
+    margin: 0 auto;
+    background: white;
+}
+
+.Modal-content {
+	color: #333;
+}
